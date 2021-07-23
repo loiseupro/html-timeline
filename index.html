@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-color: #474e5d;
+		font-family: Helvetica, sans-serif;
+	}
+
+	.timeline {
+		position: relative;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.timeline::after {
+		content: '';
+		position: absolute;
+		width: 6px;
+		background-color: white;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		margin-left: -3px;
+	}
+
+	.container {
+		padding: 10px 40px;
+		position: relative;
+		background-color: inherit;
+		width: 50%;
+		animation: 1s ease-out 0s 1 slideInFromBottom;
+	}
+
+	.container::after {
+		content: '';
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		right: -17px;
+		background-color: #474e5d;
+		border: 4px dashed white;
+		top: 15px;
+		border-radius: 50%;
+		z-index: 1;
+		animation: spin 10s linear infinite;
+	}
+
+	.timeline h2{
+		color: #37A898;
+	}
+
+	.timeline p{
+		font-size: 12px;
+	}
+
+	.left {
+		left: 0;		
+	}
+
+	.right {
+		left: 50%;
+	}
+
+	.left::before {
+		content: " ";
+		height: 0;
+		position: absolute;
+		top: 22px;
+		width: 0;
+		z-index: 1;
+		right: 30px;
+		border: medium solid white;
+		border-width: 10px 0 10px 10px;
+		border-color: transparent transparent transparent white;
+	}
+
+	.right::before {
+		content: " ";
+		height: 0;
+		position: absolute;
+		top: 22px;
+		width: 0;
+		z-index: 1;
+		left: 30px;
+		border: medium solid white;
+		border-width: 10px 10px 10px 0;
+		border-color: transparent white transparent transparent;
+	}
+
+	.right::after {
+		left: -16px;
+	}
+
+	.content {
+		padding: 20px 30px;
+		background-color: white;
+		position: relative;		
+	}
+
+	.left .content{
+		border-left: 7px solid #37A898;
+	}
+
+	.right .content{
+		border-right: 7px solid #37A898;
+	}
+
+
+	@media screen and (max-width: 600px) {
+
+		.timeline::after {
+			left: 31px;
+		}
+		.container {
+			width: 100%;
+			padding-left: 70px;
+			padding-right: 25px;
+		}
+
+		.container::before {
+			left: 60px;
+			border: medium solid white;
+			border-width: 10px 10px 10px 0;
+			border-color: transparent white transparent transparent;
+		}
+
+		.left::after, .right::after {
+			left: 15px;
+		}
+
+		.right {
+			left: 0%;
+		}
+	}
+
+	@keyframes slideInFromBottom {
+		0% {
+			transform: translateY(100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes spin { 
+		100% { 
+			transform: rotateZ(360deg);
+		}
+	}
+
+</style>
+</head>
+<body>
+
+	<div class="timeline">
+
+		<div class="container left">
+			<div class="content">
+				<h2>2021</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum, quam non facilisis tempus, mi enim mollis justo, semper vehicula justo odio ut tellus.</p>
+			</div>
+		</div>
+		<div class="container right">
+			<div class="content">
+				<h2>2020</h2>
+				<p>Vivamus ut ligula consectetur, fermentum massa non, luctus arcu.</p>
+			</div>
+		</div>
+
+		<div class="container left">
+			<div class="content">
+				<h2>2019</h2>
+				<p>Maecenas nec velit leo. Mauris et metus lobortis, vehicula augue non, elementum erat.</p>
+			</div>
+		</div>
+		<div class="container right">
+			<div class="content">
+				<h2>2018</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum, quam non facilisis tempus, mi enim mollis justo, semper vehicula justo odio ut tellus.</p>
+			</div>
+		</div>
+		<div class="container left">
+			<div class="content">
+				<h2>2017</h2>
+				<p>Vivamus ut ligula consectetur, fermentum massa non, luctus arcu.</p>
+			</div>
+		</div>
+		<div class="container right">
+			<div class="content">
+				<h2>2016</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum, quam non facilisis tempus, mi enim mollis justo, semper vehicula justo odio ut tellus.</p>
+			</div>
+		</div>
+	</div> 
+
+</body>
+</html>
